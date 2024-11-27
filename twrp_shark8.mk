@@ -37,5 +37,5 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 PRODUCT_DEVICE := $(PRODUCT_RELEASE_NAME)
 PRODUCT_NAME := twrp_$(PRODUCT_RELEASE_NAME)
 PRODUCT_BRAND := blackview
-PRODUCT_MODEL := SHARK8
+PRODUCT_MODEL := shark8
 PRODUCT_MANUFACTURER := blackview
