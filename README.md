@@ -23,21 +23,6 @@ Camera  | 64 MP (Samsung® ISOCELL GW3) and 13 MP (Samsung® ISOCELL 3L6)
 
 ## Features
 
-Works:
-
-- [X] ADB
-- [ ] Trust Kernel Decryption
-- [X] Display
-- [X] Fasbootd
-- [X] Flashing
-- [X] MTP
-- [X] Sideload
-- [X] USB OTG
-- [X] SD Card
-- [X] Touch
-- [ ] Flashlight
-- [X] Vibrator
-
 # Building
 ```bash
 source build/envsetup.sh
