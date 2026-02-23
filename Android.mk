@@ -16,6 +16,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),rock)
+ifeq ($(TARGET_DEVICE),Shark8)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 endif
