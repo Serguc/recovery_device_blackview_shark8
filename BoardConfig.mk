@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/blackview/shark8
+DEVICE_PATH := device/Blackview/Shark8
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -45,7 +45,7 @@ ENABLE_SCHEDBOOST := true
 TARGET_OTA_ASSERT_DEVICE := shark8
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := shark8
+TARGET_BOOTLOADER_BOARD_NAME := Shark8
 TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
 
@@ -57,6 +57,7 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 BOARD_VENDOR_CMDLINE := bootopt=64S3,32N2,64N2
 BOARD_KERNEL_BASE := 0x3fff8000
 BOARD_PAGE_SIZE := 4096
