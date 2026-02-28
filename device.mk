@@ -97,10 +97,10 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
 # Vendor ramdisk
 PRODUCT_COPY_FILES += \
     device/Blackview/Shark8/fstab.mt6789:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6789 \
-    $(DEVICE_PATH)/recovery/root/vendor/bin/teei_daemon:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/teei_daemon \
-    $(DEVICE_PATH)/recovery/root/vendor/bin/hw/android.hardware.security.keymint-service.beanpod:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/keymint-beanpod \
-    $(DEVICE_PATH)/recovery/root/vendor/bin/hw/android.hardware.gatekeeper@1.0-service:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/gatekeeper-1-0
-   
+    device/Blackview/Shark8/recovery/root/vendor/bin/teei_daemon:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/teei_daemon \
+    device/Blackview/Shark8/recovery/root/vendor/bin/hw/android.hardware.security.keymint-service.beanpod:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/keymint-beanpod \
+    device/Blackview/Shark8/recovery/root/vendor/bin/hw/android.hardware.gatekeeper@1.0-service:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/gatekeeper-1-0
+
 # OEM otacerts
 PRODUCT_EXTRA_RECOVERY_KEYS += \
     $(DEVICE_PATH)/security/otacert
