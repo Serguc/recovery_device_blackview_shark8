@@ -34,13 +34,13 @@ on early-fs
     start vold
 
 on fs
-    wait /vendor/bin/teei_daemon
-    chown root root /vendor/bin/teei_daemon
-    chmod 0755 /vendor/bin/teei_daemon
+    wait /system/bin/teei_daemon
+    chown root root /system/bin/teei_daemon
+    chmod 0755 /system/bin/teei_daemon
     
-    wait /vendor/bin/hw/android.hardware.security.keymint-service.beanpod
-    chown root root /vendor/bin/hw/android.hardware.security.keymint-service.beanpod
-    chmod 0755 /vendor/bin/hw/android.hardware.security.keymint-service.beanpod
+    wait /system/bin/android.hardware.security.keymint-service.beanpod
+    chown root root /system/bin/android.hardware.security.keymint-service.beanpod
+    chmod 0755 /system/bin/android.hardware.security.keymint-service.beanpod
     write /proc/bootprof "INIT:fs"
     install_keyring
 
@@ -94,7 +94,7 @@ service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     oneshot
     seclabel u:r:recovery:s0
 
-service keymint-beanpod /vendor/bin/hw/android.hardware.security.keymint@1.0-service.beanpod
+service keymint-beanpod /system/bin/android.hardware.security.keymint@1.0-service.beanpod
     interface android.hardware.keymaster@4.0::IKeymasterDevice default
     interface android.hardware.keymaster@4.1::IKeymasterDevice default
     user root
@@ -103,7 +103,7 @@ service keymint-beanpod /vendor/bin/hw/android.hardware.security.keymint@1.0-ser
     oneshot
     seclabel u:r:recovery:s0
 
-service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
+service gatekeeper-1-0 /system/bin/android.hardware.gatekeeper@1.0-service
     interface android.hardware.gatekeeper@1.0::IGatekeeper default
     user root
     group root
