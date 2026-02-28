@@ -34,6 +34,13 @@ on early-fs
     start vold
 
 on fs
+    wait /vendor/bin/teei_daemon
+    chown root root /vendor/bin/teei_daemon
+    chmod 0755 /vendor/bin/teei_daemon
+    
+    wait /vendor/bin/hw/android.hardware.security.keymint-service.beanpod
+    chown root root /vendor/bin/hw/android.hardware.security.keymint-service.beanpod
+    chmod 0755 /vendor/bin/hw/android.hardware.security.keymint-service.beanpod
     write /proc/bootprof "INIT:fs"
     install_keyring
 
