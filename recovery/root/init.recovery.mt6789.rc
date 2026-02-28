@@ -94,6 +94,13 @@ service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     oneshot
     seclabel u:r:recovery:s0
 
+service teei_daemon /system/bin/teei_daemon
+    class core
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
 service keymint-beanpod /system/bin/android.hardware.security.keymint@1.0-service.beanpod
     interface android.hardware.keymaster@4.0::IKeymasterDevice default
     interface android.hardware.keymaster@4.1::IKeymasterDevice default
@@ -128,11 +135,8 @@ on property:sys.usb.ffs.ready=1
 
 on property:hwservicemanager.ready=true
     start teei_daemon
-    start gatekeeper-1-0
-    start keymint-beanpod
-    
+
 on property:vendor.sys.listener.registered=true
-    start teei_daemon
     start gatekeeper-1-0
     start keymint-beanpod
    
