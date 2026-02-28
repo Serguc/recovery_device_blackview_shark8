@@ -210,19 +210,19 @@ on fs
     chmod 0771 /mnt/vendor/persist
     restorecon /mnt/vendor/persist
 
-    chmod 0660 /dev/teei_client
+    chmod 0666 /dev/teei_client
     chown system system /dev/teei_client
-    chmod 0660 /dev/teei_config
+    chmod 0666 /dev/teei_config
     chown system system /dev/teei_config
     # 666 for SVP
     chmod 0666 /dev/isee_tee0
     chown system drmrpc /dev/isee_tee0
-    chmod 0660 /dev/tz_vfs
+    chmod 0666 /dev/tz_vfs
     chown system system /dev/tz_vfs
     chmod 0660 /dev/teei_fp
     chown system /dev/teei_fp
     chown system drmrpc /dev/ut_keymaster
-    chmod 0660 /dev/ut_keymaster
+    chmod 0666 /dev/ut_keymaster
     # rpmb device
     chmod 0660 /dev/0:0:0:49476
     chown system system /dev/0:0:0:49476
