@@ -153,6 +153,7 @@ on boot
     start health-hal-2-1
     start vendor.vibrator-default
     setprop sys.usb.config adb
+    setenforce 0
 
 service modules_mount /system/bin/modules_mount.sh
     user root
