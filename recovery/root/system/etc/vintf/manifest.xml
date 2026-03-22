@@ -11,16 +11,6 @@
             <instance>default</instance>
         </interface>
     </hal>
-
-    <hal format="aidl">
-        <name>android.hardware.security.keymint</name>
-        <version>1</version>
-        <interface>
-            <name>IKeyMintDevice</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-
     <hal format="aidl">
         <name>android.hardware.security.sharedsecret</name>
         <version>1</version>
@@ -29,7 +19,6 @@
             <instance>default</instance>
         </interface>
     </hal>
-
     <hal format="hidl">
         <name>android.frameworks.displayservice</name>
         <transport>hwbinder</transport>
@@ -39,7 +28,6 @@
             <instance>default</instance>
         </interface>
     </hal>
-
     <hal format="hidl">
         <name>android.hardware.gatekeeper</name>
         <transport>hwbinder</transport>
@@ -59,7 +47,6 @@
             <instance>default</instance>
         </interface>
     </hal>
-
     <hal format="hidl">
         <name>android.hidl.manager</name>
         <transport>hwbinder</transport>
@@ -69,7 +56,6 @@
             <instance>default</instance>
         </interface>
     </hal>
-
     <hal format="hidl">
         <name>android.hidl.token</name>
         <transport>hwbinder</transport>
@@ -79,7 +65,6 @@
             <instance>default</instance>
         </interface>
     </hal>
-
     <hal format="hidl">
         <name>vendor.vivo.hardware.wifi.keystore</name>
         <transport>hwbinder</transport>
