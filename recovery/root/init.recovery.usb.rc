@@ -6,7 +6,7 @@ on early-init
 
 on post-fs
     # Use Google Vendor ID for ADB, Sideload, and fastboot (stock recovery-like)
-    setprop sys.usb.vid "0x18D1"
+    setprop sys.usb.vid "0x201с"
     # Use MTK Vendor ID for Composite ADB (stock system-like)
     setprop sys.usb.vid.mtk "0x0E8D"
 
