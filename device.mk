@@ -83,23 +83,16 @@ PRODUCT_PACKAGES += \
 # Additional binaries & libraries needed for recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
     libion \
-    libkeymint \
-    libgatekeeper \
     libpuresoftkeymasterdevice
 
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymint.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libgatekeepert.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.vibrator-V1-ndk_platform.so \
 
 # Vendor ramdisk
 PRODUCT_COPY_FILES += \
     device/Blackview/Shark8/fstab.mt6789:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6789 \
-    device/Blackview/Shark8/recovery/root/vendor/bin/teei_daemon:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/teei_daemon \
-    device/Blackview/Shark8/recovery/root/vendor/bin/hw/android.hardware.security.keymint@1.0-service.beanpod:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/android.hardware.security.keymint@1.0-service.beanpod \
-    device/Blackview/Shark8/recovery/root/vendor/bin/hw/android.hardware.gatekeeper@1.0-service:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/android.hardware.gatekeeper@1.0-service
 
 # OEM otacerts
 PRODUCT_EXTRA_RECOVERY_KEYS += \
