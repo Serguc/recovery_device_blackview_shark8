@@ -34,13 +34,6 @@ on early-fs
     start vold
 
 on fs
-    wait /system/bin/teei_daemon
-    chown root root /system/bin/teei_daemon
-    chmod 0755 /system/bin/teei_daemon
-    
-    wait /system/bin/android.hardware.security.keymint-service.beanpod
-    chown root root /system/bin/android.hardware.security.keymint-service.beanpod
-    chmod 0755 /system/bin/android.hardware.security.keymint-service.beanpod
     write /proc/bootprof "INIT:fs"
     install_keyring
 
@@ -54,27 +47,19 @@ on fs
 
 on post-fs
     start boot-mtk
-    # Запуск утилиты для определения путей к прелоадеру
     exec u:r:update_engine:s0 root root -- /system/bin/mtk_plpath_utils
     start mtk.plpath.utils.link
 
-# Создание ссылок для прелоадера, когда утилита закончит работу
 on property:persist.vendor.mtk.pl_lnk=1
     symlink /dev/block/mapper/pl_a /dev/block/by-name/preloader_raw_a
     symlink /dev/block/mapper/pl_b /dev/block/by-name/preloader_raw_b
     symlink /dev/block/mapper/pl_a /dev/block/platform/bootdevice/by-name/preloader_raw_a
     symlink /dev/block/mapper/pl_b /dev/block/platform/bootdevice/by-name/preloader_raw_b
-    # Добавляем стандартные ссылки на загрузчик
-    symlink /dev/block/by-name/lk1 /dev/block/by-name/bootloader1
-    symlink /dev/block/by-name/lk2 /dev/block/by-name/bootloader2
 
-on boot
-    # Переносим сюда блоки ожидания и ссылок на физические диски
     wait /dev/block/mmcblk0boot0 2
     symlink /dev/block/sda /dev/block/mmcblk0boot0
     symlink /dev/block/sdb /dev/block/mmcblk0boot1
 
-    # Динамические ссылки
     on property:vendor.mtk.boot0_linka=1
         symlink /dev/block/sda /dev/block/mmcblk0boot0
     on property:vendor.mtk.boot0_linkb=1
