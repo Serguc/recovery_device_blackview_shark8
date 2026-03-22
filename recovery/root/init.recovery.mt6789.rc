@@ -135,31 +135,38 @@ on property:sys.usb.ffs.ready=1
 
 on property:hwservicemanager.ready=true
     start teei_daemon
-
-on property:vendor.sys.listener.registered=true
     start gatekeeper-1-0
     start keymint-beanpod
+    start keymaster
+
+on property:vendor.sys.listener.registered=true
+    start teei_daemon
+    start gatekeeper-1-0
+    start keymint-beanpod
+    start keymaster
    
 on property:ro.crypto.state=unsupported
     stop teei_daemon
     stop keymint-beanpod
     stop gatekeeper-1-0
+    stop keymaster-4-1
 
 on property:ro.crypto.state=unencrypted
     stop teei_daemon
     stop keymint-beanpod
     stop gatekeeper-1-0
+    stop keymaster
     
 on property:twrp.all.users.decrypted=true
     stop teei_daemon
     stop keymint-beanpod
     stop gatekeeper-1-0
+    stop keymaster
 
 on boot
     start health-hal-2-1
     start vendor.vibrator-default
     setprop sys.usb.config adb
-    setenforce 0
 
 service modules_mount /system/bin/modules_mount.sh
     user root
