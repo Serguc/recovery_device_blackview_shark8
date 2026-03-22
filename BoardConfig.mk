@@ -18,7 +18,6 @@ DEVICE_PATH := device/Blackview/Shark8
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
-BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Architecture
 TARGET_ARCH := arm64
@@ -58,7 +57,6 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 BOARD_VENDOR_CMDLINE := bootopt=64S3,32N2,64N2
 BOARD_KERNEL_BASE := 0x3fff8000
 BOARD_PAGE_SIZE := 4096
@@ -196,4 +194,4 @@ TW_LOAD_PREBUILT_MODULES := true
 TW_EXCLUDE_APEX=true
 
 # Maintainer specific settings
-#TW_DEVICE_VERSION := Kychera22
+TW_DEVICE_VERSION := Serguc
