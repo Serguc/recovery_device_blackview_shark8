@@ -82,6 +82,11 @@ service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     oneshot
     seclabel u:r:recovery:s0
 
+on post-fs-data
+    mkdir /data/vendor/keymaster 0775 root system
+    mkdir /data/vendor/gatekeeper 0775 root system
+    mkdir /data/misc/keystore 0775 keystore keystore
+
 service keymint-beanpod /system/bin/android.hardware.security.keymint@1.0-service.beanpod
     interface android.hardware.keymaster@4.0::IKeymasterDevice default
     interface android.hardware.keymaster@4.1::IKeymasterDevice default
