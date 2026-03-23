@@ -174,3 +174,4 @@ mtk-pm-domain-disable-unused.ko
 sec.ko
 uload_ind.ko
 load_track.ko
+focaltech_tp.ko
