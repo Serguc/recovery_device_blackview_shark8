@@ -38,14 +38,14 @@ on fs
     chown system system /sys/class/leds/torch-light0/brightness
     chown system system /sys/class/leds/torch-light0/max_brightness
 
-on early-fs
+ #on early-fs
     # Once metadata has been mounted, we'll need vold to deal with userdata checkpointing
-    start vold
+     #start vold
 
 # mount fstab
     write /proc/bootprof "INIT:Mount_START"
     write /sys/kernel/tracing/trace_marker "B|1|Mount"
-    mount_all --early
+    #mount_all --early
     exec /system/bin/tune2fs -O has_journal -u 10010 -r 4096 /dev/block/by-name/userdata
     write /sys/kernel/tracing/trace_marker "E"
     write /proc/bootprof "INIT:Mount_END"
