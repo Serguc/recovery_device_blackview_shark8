@@ -101,12 +101,20 @@ PRODUCT_PACKAGES += \
 # Additional binaries & libraries needed for recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
     libion \
-    libpuresoftkeymasterdevice
-
+    libpuresoftkeymasterdevice \
+    android.system.keystore2-V1-ndk_platform.so \
+    libkeystore2_crypto.so \
+    libbinder_ndk.so \
+    libcppbor_external.so
+    
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.vibrator-V1-ndk_platform.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.system.keystore2-V1-ndk_platform.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeystore2_crypto.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libbinder_ndk.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libcppbor_external.so
 
 # Vendor ramdisk
 PRODUCT_COPY_FILES += \
