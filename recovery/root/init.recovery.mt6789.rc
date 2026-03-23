@@ -3,13 +3,16 @@ import /init.microtrust.rc
 on init
     # Create a more standard /dev/block layout for our scripts
     symlink /dev/block/platform/bootdevice /dev/block/bootdevice
-    mkdir /persist 0700 root root
-    mount ext4 /dev/block/by-name/persist /persist
-    mkdir /persist/OFRP
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
     setprop sys.usb.configfs 1
     setprop sys.usb.controller "musb-hdrc"
     setprop sys.usb.ffs.aio_compat 1
+    
+on fs
+    mkdir /mnt/vendor/persist 0700 root root
+    mount ext4 /dev/block/by-name/persist /mnt/vendor/persist
+    write /proc/bootprof "INIT:fs"
+    install_keyring
     setprop crypto.ready 1
 
 # For vibrator
@@ -32,10 +35,6 @@ on init
 on early-fs
     # Once metadata has been mounted, we'll need vold to deal with userdata checkpointing
     start vold
-
-on fs
-    write /proc/bootprof "INIT:fs"
-    install_keyring
 
 # mount fstab
     write /proc/bootprof "INIT:Mount_START"
@@ -66,18 +65,6 @@ on property:persist.vendor.mtk.pl_lnk=1
         symlink /dev/block/sdb /dev/block/mmcblk0boot0
     on property:vendor.mtk.boot0_linkc=1
         symlink /dev/block/sdc /dev/block/mmcblk0boot0
-
-# Keystore 2
-service keystore2 /system/bin/keystore2 /data/misc/keystore
-    class early_hal
-    user keystore
-    group keystore readproc log
-    disabled
-    seclabel u:r:recovery:s0
-
-# Запускаем Keystore 2 только когда готов менеджер сервисов
-on property:hwservicemanager.ready=true
-    start keystore2
 
 service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     class main
